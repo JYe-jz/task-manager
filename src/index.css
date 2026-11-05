@@ -1,0 +1,270 @@
+/* 全局样式：简洁美观的中文界面 */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --primary: #2563eb;
+  --primary-hover: #1d4ed8;
+  --bg: #f3f5f9;
+  --card: #ffffff;
+  --text: #1f2937;
+  --text-light: #6b7280;
+  --border: #e5e7eb;
+  --done-bg: #f9fafb;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Hiragino Sans GB',
+    'Microsoft YaHei', 'Segoe UI', Roboto, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+.page {
+  min-height: 100vh;
+  padding: 48px 16px;
+}
+
+.container {
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+/* ---------- 头部 ---------- */
+.header {
+  text-align: center;
+  margin-bottom: 28px;
+}
+
+.header h1 {
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--text);
+  letter-spacing: 1px;
+}
+
+.subtitle {
+  margin-top: 6px;
+  color: var(--text-light);
+  font-size: 14px;
+}
+
+/* ---------- 添加表单 ---------- */
+.add-form {
+  display: flex;
+  gap: 10px;
+  background: var(--card);
+  padding: 16px;
+  border-radius: 12px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+  margin-bottom: 16px;
+}
+
+.title-input {
+  flex: 1;
+  min-width: 0;
+  padding: 10px 14px;
+  font-size: 15px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.title-input:focus {
+  border-color: var(--primary);
+}
+
+.priority-select {
+  padding: 10px 8px;
+  font-size: 14px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: #fff;
+  color: var(--text);
+  cursor: pointer;
+  outline: none;
+}
+
+.add-btn {
+  padding: 10px 22px;
+  font-size: 15px;
+  font-weight: 600;
+  color: #fff;
+  background: var(--primary);
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.2s;
+  white-space: nowrap;
+}
+
+.add-btn:hover:not(:disabled) {
+  background: var(--primary-hover);
+}
+
+.add-btn:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+/* ---------- 筛选栏 ---------- */
+.filter-bar {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 14px;
+  flex-wrap: wrap;
+}
+
+.filter-label {
+  font-size: 14px;
+  color: var(--text-light);
+}
+
+.filter-btn {
+  padding: 5px 14px;
+  font-size: 13px;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  background: #fff;
+  color: var(--text);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.filter-btn:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+}
+
+.filter-btn.active {
+  background: var(--primary);
+  border-color: var(--primary);
+  color: #fff;
+}
+
+.task-count {
+  margin-left: auto;
+  font-size: 13px;
+  color: var(--text-light);
+}
+
+/* ---------- 错误提示 ---------- */
+.error-banner {
+  background: #fef2f2;
+  color: #b91c1c;
+  border: 1px solid #fecaca;
+  border-radius: 8px;
+  padding: 10px 14px;
+  font-size: 14px;
+  margin-bottom: 14px;
+}
+
+/* ---------- 任务列表 ---------- */
+.task-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.task-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: var(--card);
+  padding: 12px 16px;
+  border-radius: 10px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+  transition: background 0.2s;
+}
+
+.task-item.done {
+  background: var(--done-bg);
+}
+
+/* 完成状态：删除线 + 颜色变淡 */
+.task-item.done .task-title {
+  text-decoration: line-through;
+  color: var(--text-light);
+}
+
+.check-btn {
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  border: 2px solid var(--border);
+  background: #fff;
+  font-size: 13px;
+  line-height: 1;
+  color: #fff;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+}
+
+.check-btn:hover {
+  border-color: var(--primary);
+}
+
+.check-btn.checked {
+  background: var(--primary);
+  border-color: var(--primary);
+}
+
+.task-title {
+  flex: 1;
+  font-size: 15px;
+  word-break: break-all;
+}
+
+.priority-tag {
+  flex-shrink: 0;
+  padding: 2px 10px;
+  border-radius: 12px;
+  font-size: 12px;
+  color: #fff;
+  font-weight: 600;
+}
+
+.delete-btn {
+  flex-shrink: 0;
+  padding: 5px 12px;
+  font-size: 13px;
+  border: 1px solid #fecaca;
+  border-radius: 6px;
+  background: #fff;
+  color: #b91c1c;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.delete-btn:hover {
+  background: #b91c1c;
+  color: #fff;
+}
+
+.empty-tip {
+  text-align: center;
+  color: var(--text-light);
+  font-size: 14px;
+  padding: 40px 0;
+}
+
+/* ---------- 底部 ---------- */
+.footer {
+  text-align: center;
+  color: var(--text-light);
+  font-size: 12px;
+  margin-top: 32px;
+}

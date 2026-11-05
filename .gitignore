@@ -1,0 +1,21 @@
+# 依赖目录
+node_modules/
+
+# 构建产物
+dist/
+
+# 环境变量（绝不允许上传到 GitHub！里面含数据库密钥）
+.env
+.env.local
+.env.*.local
+
+# 系统文件
+.DS_Store
+Thumbs.db
+
+# Vercel 本地缓存
+.vercel/
+
+# 日志
+*.log
+npm-debug.log*
